@@ -77,16 +77,16 @@ if prompt := st.chat_input("E.g., Which table has the daily return rate for FBN 
         with st.spinner("Searching the data catalog..."):
             # We send the user's prompt. The system instruction already contains the entire Google Sheet.
             try:
-    # Try to ask the AI
-    response = model.generate_content(prompt)
-    st.write(response.text)
+                # Try to ask the AI
+                response = model.generate_content(prompt)
+                st.write(response.text)
+                
+                # Add assistant response to chat history ONLY if successful
+                st.session_state.messages.append({"role": "assistant", "content": response.text})
 
-    except Exception as e:
-    # If it crashes, intercept the error
-    if "ResourceExhausted" in str(e):
-        st.error("⏳ **AI resource limits reached.** The Copilot is out of quota for today. Please try again tomorrow!")
-    else:
-        st.error("⚠️ **Oops!** The Copilot encountered a temporary issue. Please try again in a minute.")
-            
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response.text})
+            except Exception as e:
+                # If it crashes, intercept the error
+                if "ResourceExhausted" in str(e):
+                    st.error("⏳ **AI resource limits reached.** The Copilot is out of quota for today. Please try again tomorrow!")
+                else:
+                    st.error("⚠️ **Oops!** The Copilot encountered a temporary issue. Please try again in a minute.")
