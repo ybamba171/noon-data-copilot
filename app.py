@@ -50,7 +50,7 @@ If the requested data does not exist in the provided catalog, say 'I cannot find
 """
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",
+    model_name="gemini-2.5-flash", # <-- Update this exactly!
     generation_config=generation_config,
     system_instruction=system_instruction
 )
