@@ -42,8 +42,9 @@ Here is the complete metadata for all our tables:
 ---
 When a user asks a question, tell them:
 1. The exact Table Name(s) they should use.
-2. The Granularity of the table.
-3. A brief explanation of why this table solves their problem.
+2. The Primary Keys they should use to join or group the data.
+3. A brief explanation of why this table solves their problem based on the description.
+
 If the requested data does not exist in the provided catalog, say 'I cannot find a table for this metric in our current catalog.' Do not make up tables.
 """
 
