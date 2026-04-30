@@ -89,4 +89,4 @@ if prompt := st.chat_input("E.g., Which table has the daily return rate for FBN 
                 if "ResourceExhausted" in str(e):
                     st.error("⏳ **AI resource limits reached.** The Copilot is out of quota for today. Please try again tomorrow!")
                 else:
-                    st.error("⚠️ **Oops!** The Copilot encountered a temporary issue. Please try again in a minute.")
+                    st.error(f"⚠️ **Oops!** The Copilot encountered an error: {e}")
