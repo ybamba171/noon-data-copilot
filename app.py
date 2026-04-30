@@ -13,7 +13,7 @@ st.markdown("Ask me where to find the data you need!")
 @st.cache_data(ttl=3600)
 def load_data():
     # REPLACE THIS URL with your published CSV link
-    csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlVS1JxK9kak88lkbvB5CkMDYNWw5tyUjO8JPvEdQX96su1lXQ7PCTP-wS34ehY9NFKnuitP1fh-4q/pubhtml"
+    csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlVS1JxK9kak88lkbvB5CkMDYNWw5tyUjO8JPvEdQX96su1lXQ7PCTP-wS34ehY9NFKnuitP1fh-4q/pub?gid=0&single=true&output=csv"
     df = pd.read_csv(csv_url)
     # Convert the entire dataframe to a CSV string to feed to the LLM
     return df.to_csv(index=False)
